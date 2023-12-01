@@ -1,0 +1,114 @@
+body::-webkit-scrollbar {
+    width: 12px;   /* Largura da scroll */
+}
+body::-webkit-scrollbar-track {
+    background: #010134;        /* Cor fundo da scroll */
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #020259;    /* Cor da barra móvel da scroll */
+    border-radius: 20px;       /* Borda arredondada */
+    border: 3px solid purple;  /* Padding */
+}
+::selection {
+    background-color: purple;
+    color: whitesmoke;
+}
+
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+}
+
+body {
+    margin: 0;
+    background-color: #010134;
+}
+
+/* CABEÇALHO / NAVBAR */
+.header {
+    border-bottom: 3px solid purple;
+    background-color: #010134;
+    margin: 0px;
+}
+
+.header .container {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .container ul {
+    width: 400px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    color: purple;
+}
+
+.header h1 {
+    color: whitesmoke;
+    height: 45px;
+    align-self: center;
+}
+
+.header a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+/* BODY / CORPO */
+.banner {
+    background-image: url(../assets/banner_login&cadastro.png);
+    height: 560px;
+    align-items: center;
+    justify-content: flex-start;
+    background-size: cover;
+}
+
+.banner h1 {
+    margin-left: -10px;
+    background-color: purple;
+    color: whitesmoke;
+    display: flex;
+    margin-top: 4px;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.banner .container {
+    margin-left: 12px;
+    color: whitesmoke;
+}
+
+.formulario {
+    margin-left: 260px;
+    border: 3px solid purple;
+    border-radius: 20px;
+    padding: 10px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario span {
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+.formulario button {
+    margin-top: 10px;
+    background: purple;
+    color: whitesmoke;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 130px;
+}
+
+#questao-container {
+   font-weight: bold;
+}

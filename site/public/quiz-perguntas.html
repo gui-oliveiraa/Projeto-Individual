@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas - Quiz</title>
+    <link rel="stylesheet" href="css/quiz-perguntas_style.css">
+    <link rel="shortcut icon" href="assets/logo champions.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- HEADER / CABEÇALHO -->
+    <div class="header">
+        <div class="container">
+            <h1>
+                <img src="assets/logo_champions_navbar.png" style="height: 35px;">
+                UEFA CHAMPIONS LEAGUE QUIZ
+            </h1>
+            <ul>
+                <li><a href="index.html">Sair</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner">
+        <br>
+        <h1>Seja bem-vindo(a) ao quiz!</h1>
+        <div class="container">
+            <u>Instruções básicas</u> <br><br>
+            1- Escolha uma opção disponível em cada questão.<br><br>
+            2- Cada questão tem o valor de 1 ponto, <br>totalizando 7 pontos possíveis. <br><br>
+            Boa sorte! <br><br><br>
+            <div class="formulario">
+                <span>
+                    <div id="questao-container"></div>
+                    <div id="options-container"></div>
+                    <button id="enviar">Enviar</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- INÍCIO DO SCRIPT -->
+    <script>
+    var Lista_pontos = [];
+    const dadosQuiz = [
+    {
+    pergunta: "Questão 1 - Quem é o maior artilheiro (mais gols marcados) da história da Champions League?",
+    opcoes: ["Lionel Messi", "Neymar", "Robert Lewandowski", "Cristiano Ronaldo"],
+    respostaCorreta: "Cristiano Ronaldo"
+    },
+    {
+    pergunta: "Questão 2 - Qual é o país com mais títulos de UEFA Champions League? ",
+    opcoes: ["Itália", "Inglaterra", "Espanha", "Alemanha"],
+    respostaCorreta: "Espanha"
+    },
+    {
+    pergunta: "Questão 3 - Qual dos times a seguir não possui um título de Champions League?",
+    opcoes: ["Nottingham Forest", "Manchester United", "Arsenal", "Borussia Dortmund"],
+    respostaCorreta: "Arsenal"
+    },
+    {
+    pergunta: "Questão 4 - Qual o único clube francês a conquistar a Champions?",
+    opcoes: ["Olympique de Marselha", "Paris Saint-Germain", "Mônaco", "Lyon"],
+    respostaCorreta: "Olympique de Marselha"
+    },
+    {
+    pergunta: "Questão 5 - Qual o maior artilheiro brasileiro da competição?",
+    opcoes: ["Ronaldinho", "Neymar", "Rivaldo", "Kaká"],
+    respostaCorreta: "Neymar"
+    },
+    {
+    pergunta: "Questão 6 - Qual o treinador com mais títulos conquistados?",
+    opcoes: ["Pep Guardiola", "Zinedine Zidane", "Carlo Ancelotti", "José Mourinho"],
+    respostaCorreta: "Carlo Ancelotti"
+    },
+    {
+    pergunta: "Questão final - Qual o maior vice (mais finais perdidas) da competição?",
+    opcoes: ["Juventus", "Real Madrid", "Benfica", "Bayern de Munique"],
+    respostaCorreta: "Juventus"
+    },
+
+    ];
+
+    // DIV QUESTÕES
+    const containerPergunta = document.getElementById("questao-container");
+    // DIV ALTERNATIVAS
+    const containerOpcoes = document.getElementById("options-container");
+    // BOTÃO RESULTADO
+    const botaoFinalizar = document.getElementById("enviar");
+
+    // VARIÁVEIS GLOBAIS
+    let perguntaAtual = 0;
+    let pontuacao = 0;
+
+
+    // TROCAR DE UMA PERGUNTA PARA OUTRA
+    function carregarPergunta() {
+    const perguntaAtualQuiz = dadosQuiz[perguntaAtual];
+
+    containerPergunta.innerHTML = `<p>${perguntaAtualQuiz.pergunta}</p>`;
+
+    containerOpcoes.innerHTML = "";
+    for (let indice = 0; indice < perguntaAtualQuiz.opcoes.length; indice++) { const idOpcao=`opcao${indice + 1}`;
+        containerOpcoes.innerHTML +=`<input type="radio" name="pergunta" value="${perguntaAtualQuiz.opcoes[indice]}"
+        id="${idOpcao}">
+        <label for="${idOpcao}">${perguntaAtualQuiz.opcoes[indice]}</label><br>`;
+        }
+        }
+
+        
+            function verificarResposta() {
+                const opcaoSelecionada = document.querySelector('input[name="pergunta"]:checked');
+
+                // SE O USUÁRIO NÃO ESCOLHER NENHUMA OPÇÃO
+                if (!opcaoSelecionada) {
+                    alert("Selecione uma alternativa!");
+                    return;
+                }
+
+                // INCREMENTANDO A PONTUAÇÃO 
+                const respostaUsuario = opcaoSelecionada.value;
+                if (respostaUsuario === dadosQuiz[perguntaAtual].respostaCorreta) {
+                    pontuacao++;
+                }
+
+                perguntaAtual++;
+
+                if (perguntaAtual < dadosQuiz.length) {
+                    carregarPergunta();
+
+                }
+                else {
+                    alert(`Quiz concluído! Sua pontuação é ${pontuacao} de ${dadosQuiz.length}.`);
+
+                    // ENVIANDO PARA O VETOR
+                    Lista_pontos.push(pontuacao);
+
+                    // MIGRAR PARA A DASHBOARD
+                    setTimeout(function () {
+                        window.location.href = "dashboard.html"
+                    }, 2000);
+
+                    fetch("/quiz/cadastrar", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            // crie um atributo que recebe o valor recuperado aqui
+                            // Agora vá para o arquivo routes/usuario.js
+                            pontuacaoServer: pontuacao
+                        }),
+                    })
+                        .then(function (resposta) {
+                            console.log("resposta: ", resposta);
+
+                            if (resposta.ok) {
+
+
+                                alert("Quiz realizado com sucesso! Redirecionando para tela de Estatisticas")
+
+
+                            } else {
+                                throw "Houve um erro ao tentar realizar o cadastro!";
+                            }
+                        })
+                        .catch(function (resposta) {
+                            console.log(`#ERRO: ${resposta}`);
+
+                        });
+
+                    return false;
+                }
+            }
+
+            carregarPergunta();
+
+            botaoFinalizar.addEventListener("click", verificarResposta);
+
+        </script>
+</body>
+
+</html>
