@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards</title>
+    <link rel="stylesheet" href="css/dashboard_style.css">
+    <link rel="shortcut icon" href="assets/logo champions.png" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- HEADER / CABEÇALHO -->
+    <div class="header">
+        <div class="container">
+            <h1>
+                <img src="assets/logo_champions_navbar.png" style="height: 35px;">
+                UEFA CHAMPIONS LEAGUE
+            </h1>
+            <ul>
+                <li><a href="index.html">Sair</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- BODY - DASHBOARDS -->
+    <div class="dashboards"> <br>
+        <h1>Dashboards do Quiz</h1>
+        <br>
+        <h2>Fazer outra tentativa: <a href="quiz-perguntas.html">Clique aqui</a></h2>
+        <div class="grafico">
+            <span>Gênero dos usuários cadastrados</span> <br>
+            <canvas id="grafico1">
+                <!-- GRÁFICO DE GÊNERO -->
+            </canvas>
+        </div>
+        <div class="grafico2">
+            <span>Média de acertos em 7 questões</span> <br><br><br>
+            <canvas id="grafico2">
+                <!-- GRÁFICO DE MÉDIA DE ACERTOS -->
+            </canvas>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="container">
+            <h4>
+                &copy; Autor: Guilherme Oliveira
+                <a href="https://www.chartjs.org/docs/latest/getting-started/">Referências de design - CHART JS:
+                    https://www.chartjs.org/docs/latest/getting-started/</a>
+            </h4>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div>
+
+    <script src="js/dashboards.js"></script>
+</body>
+
+</html>

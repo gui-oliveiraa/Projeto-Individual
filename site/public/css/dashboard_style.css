@@ -1,0 +1,147 @@
+body::-webkit-scrollbar {
+    width: 12px;   /* Largura da scroll */
+}
+body::-webkit-scrollbar-track {
+    background: #010134;        /* Cor fundo da scroll */
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #020259;    /* Cor da barra móvel da scroll */
+    border-radius: 20px;       /* Borda arredondada */
+    border: 3px solid purple;  /* Padding */
+}
+::selection {
+    background-color: purple;
+    color: whitesmoke;
+}
+
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+}
+
+body {
+    margin: 0;
+    background-color: #010134;
+}
+
+/* CABEÇALHO / NAVBAR */
+.header {
+    border-bottom: 3px solid purple;
+    background-color: #010134;
+    margin: 0px;
+}
+
+.header .container {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .container ul {
+    width: 400px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    color: purple;
+}
+
+.header h1 {
+    color: whitesmoke;
+    height: 45px;
+    align-self: center;
+}
+
+.header a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+/* BODY / CORPO */
+
+.dashboards {
+    height: 700px;
+    background-image: url(../assets/banner_login&cadastro.png);
+    background-size: cover;
+}
+
+.dashboards h1 {
+    background-color: purple;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.grafico {
+    background-color: lightgray;
+    border: 3px solid purple;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 80px;
+    margin-left: 210px;
+    width: 350px;
+}
+
+.grafico2 {
+    height: 300px;
+    background-color: lightgray;
+    border: 3px solid purple;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: -386px;
+    margin-left: 720px;
+    width: 350px;
+}
+
+.dashboards span {
+    font-size: 20px;
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: purple;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboards h2 {
+    margin-left: 15px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.dashboards a {
+    color: violet;
+}
+
+
+/* FOOTER / RODAPÉ */
+.footer {
+    height: 25px;
+    width: 100%;
+    background-color: #010134;
+    border-top: 3px solid purple;
+}
+
+.footer a {
+    color: rgb(203, 41, 203);
+}
+
+.footer .container h4 {
+    display: flex;
+    justify-content: space-around;
+    border-left: 15px;
+    color: whitesmoke;
+    font-size: 15px;
+    width: 100%;
+}
+
+.version {
+    display: flex;
+    justify-content: end;
+    margin-right: 15px;
+    color: whitesmoke;
+}
