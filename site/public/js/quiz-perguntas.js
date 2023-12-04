@@ -91,7 +91,15 @@ function verificarResposta() {
     else {
         var aproveitamento = parseInt((pontuacao/dadosQuiz.length)*100);
 
-        alert(`Quiz concluído! Você acertou ${pontuacao} questões em um total de ${dadosQuiz.length} e obteve um aproveitamento aproximado de ${aproveitamento}%`);
+        if (pontuacao == 0) {
+            alert(`Quiz concluído! Infelizmente você não acertou nenhuma questão e obteve um aproveitamento de ${aproveitamento}%  :( `);
+        }
+        else if (pontuacao == 1) {
+            alert(`Quiz concluído! Você acertou apenas ${pontuacao} questão em um total de ${dadosQuiz.length} e obteve um aproveitamento de ${aproveitamento}%`);
+        } else {
+            alert(`Quiz concluído! Você acertou ${pontuacao} questões em um total de ${dadosQuiz.length} e obteve um aproveitamento de ${aproveitamento}% !`);
+        }
+       
 
         // // ENVIANDO PARA O VETOR
         Lista_pontos.push(pontuacao);

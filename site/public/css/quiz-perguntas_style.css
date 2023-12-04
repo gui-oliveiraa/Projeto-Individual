@@ -79,13 +79,17 @@ body {
 }
 
 .banner .container {
+    border: 2px solid purple;
+    border-radius: 30px;
+    padding: 15px;
     margin-left: 12px;
-    color: whitesmoke;
+    color: lightgray;
 }
 
 .formulario {
-    margin-left: 260px;
+    margin-left: 275px;
     border: 3px solid purple;
+    background-color: lightgray;
     border-radius: 20px;
     padding: 10px;
     width: 800px;
@@ -96,19 +100,21 @@ body {
 
 .formulario span {
     font-size: 15px;
-    color: whitesmoke;
+    color: black;
+    font-weight: bold;
+}
+
+#options-container {
+    font-size: 13px;
 }
 
 .formulario button {
+    border: 3px solid purple;
     margin-top: 10px;
-    background: purple;
+    background: rgb(171, 0, 171);
     color: whitesmoke;
     padding: 10px 15px;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 13px;
     width: 130px;
-}
-
-#questao-container {
-   font-weight: bold;
 }
